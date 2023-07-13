@@ -1,0 +1,160 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+@media (prefers-color-scheme: dark) {
+    $grisOscuro: #2c2c3b;
+
+    body{
+        background-color: $grisOscuro;
+    }
+
+    .tagline, 
+    .formulario label, 
+    .login .acciones a,
+    .crear .acciones a, 
+    .olvido .acciones a, 
+    .confirmar .acciones a,
+    .reestablecer .acciones
+    {
+        color: v.$blanco;
+    }
+
+    .descripcion-pagina, 
+    .nombre-pagina
+    {
+        color: v.$grisClaro;
+    }
+
+    .formulario .campo input
+    {
+        background-color: $grisOscuro;
+        color: darken(v.$grisClaro, 15%);
+        border-bottom: 1px solid v.$blanco;
+    }
+
+    //Alertas
+    .alerta.error, 
+    .alerta.exito
+    {
+        background-color: darken(v.$blanco, 20%);
+    }
+
+    //Barra lateral
+    .sidebar{
+        @include m.tablet {
+            background-color: darken($grisOscuro, 5%);
+        }
+        .side-nav a{
+            &:active,
+            &:hover{
+                background-color: lighten(v.$naranja, 5%);
+            }
+        }
+    }
+    
+    //Barra
+    .barra{
+        background-color: darken($grisOscuro, 7%);
+        
+        p{
+            color: v.$naranja;
+            
+            span{
+                color: v.$blanco;
+            }
+        }
+
+        .cerrar-sesion 
+        {
+            @include m.boton (v.$naranja,v.$blanco);
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    //modal
+    .modal{
+        .formulario{
+            background-color: $grisOscuro;
+            
+            legend{
+                color: v.$blanco;
+            }
+            
+            input:not([type=submit]){
+                background-color: inherit;
+            }
+            
+            input[type=text]{
+                border: none;
+                color: v.$blanco;
+                background-color: lighten($grisOscuro, 10%);
+                
+                &::placeholder{
+                    color: darken(v.$grisClaro, 20%);
+                }
+            }
+        }
+
+    }
+
+    //Dashboard
+    .dashboard
+    {
+        background-color: $grisOscuro;
+        
+        .enlace{
+            color: v.$grisClaro;
+
+            &:hover{
+                color: darken(v.$grisClaro, 10%);
+            }
+        }
+
+        .formulario input:not([type=submit]){
+            color: v.$blanco;
+            border: none;
+            background-color: darken($grisOscuro, 7%); 
+        }
+    }
+    
+    //Movile
+    .barra-mobile{
+        background-color: darken($grisOscuro, 7%);   
+    }
+
+    .sidebar .cerrar-menu-mobile .cerrar-sesion{
+        @include m.boton (v.$naranja,v.$blanco);
+    }
+
+    //Contenedor filtros, todas, completado y pendientes.
+    .filtros{
+        background-color: lighten($grisOscuro, 10%);
+
+        h2, label{
+            color: v.$blanco;
+        }
+
+        .campo input[type=radio]{
+            accent-color: v.$naranja;
+        }
+    }
+
+    //Listados proyectos
+    .listado-proyectos .proyecto{
+        background-color: lighten(v.$grisOscuro, 20%);
+
+        &:hover{
+            background-color: lighten(v.$grisOscuro, 15%);
+        }
+    }
+
+    .listado-tarea .tarea{
+        background-color: lighten(v.$grisOscuro, 15%);
+        border: none;
+
+        p{
+            color: v.$blanco;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.sidebar{
+    opacity: 0;
+    background-color: v.$indigo;
+    transition-property: opacity;
+    transition-duration: 500ms;
+    overflow: hidden;
+    height: 0;    
+
+    &.mostrar{
+        height: 100%;
+        padding: 2rem;
+        opacity: 1;
+        background-color: rgb(0 0 0 / .95);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
+        @include m.tablet {
+            display: none;
+        }
+    }
+
+    @include m.tablet {
+        opacity: 1;
+        height: 100%;
+        padding: 2rem;
+        background-color: v.$indigo;
+    }
+    
+    .contenedor-sidebar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2{
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            color: v.$blanco;
+        }
+
+        .cerrar-menu{
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+
+            @include m.tablet {
+                display: none;
+            }
+
+            img{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &.ocultar{
+        opacity: 0;
+    }
+
+    .side-nav{
+        margin-top: 5rem;
+
+        a{
+            color: v.$blanco;
+            display: block;
+            padding: .7rem;
+            transition-property: background-color;
+            transition: 300ms;
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            
+            @include m.tablet {
+                font-size: 1.8rem;
+                text-align: left;
+                margin-bottom: 1.5rem;
+            }
+            
+            &:hover, 
+            &.activo{
+                background-color: darken(v.$indigo, 20%);
+                border-radius: .5rem;
+            }
+            
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .cerrar-menu-mobile{
+        margin-top: 10rem;
+
+        .cerrar-sesion{
+            @include m.boton (v.$indigo,v.$blanco);
+        }
+
+        @include m.tablet {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.confirmar{
+    margin-top: 5rem;
+
+    .uptask{
+        @include m.textoDegradado(v.$naranja);
+    }
+
+    input[type="submit"]{
+        @include m.boton(v.$naranja, v.$blanco);
+    }
+    
+    .acciones{
+        display: block;
+        a{
+            color: v.$naranja;
+            &:last-of-type{
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}

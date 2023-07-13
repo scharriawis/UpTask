@@ -1,0 +1,23 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.mensaje{
+    margin-top: 5rem;
+
+    .uptask{
+        @include m.textoDegradado(v.$indigo);
+    }
+
+    input[type="submit"]{
+        @include m.boton(v.$indigo, v.$blanco);
+    }
+    
+    .acciones{
+        a{
+            color: v.$indigo;
+            &:last-of-type{
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
